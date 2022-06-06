@@ -1,0 +1,1 @@
+[2022-06-05 17:41:29,639] INFO user=zhangqi	operation=serverStop	result=invoked (org.apache.zookeeper.audit.Log4jAuditLogger)

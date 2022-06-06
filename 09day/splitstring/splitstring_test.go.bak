@@ -1,0 +1,48 @@
+package splitstring
+
+import (
+	"reflect"
+	"testing"
+)
+
+func TestSplit(t *testing.T) {
+
+	ret := Split("ajhsbxjhasvbxhasx", "s")
+	want := []string{"ajh", "bxjha", "vbxha", "x"}
+	if !reflect.DeepEqual(ret, want) {
+		// 测试用例失败了
+		t.Errorf("want: %v, but: %v \n", want, ret)
+	}
+}
+
+func Test2Split(t *testing.T) {
+
+	ret := Split("ajhsbxjhasvbxhasx", "s")
+	want := []string{"ajh", "bxjha", "vbxha", "x"}
+	if !reflect.DeepEqual(ret, want) {
+		// 测试用例失败了
+		t.Errorf("want: %v, but: %v \n", want, ret)
+	}
+}
+
+func Test3Split(t *testing.T) {
+
+	ret := Split("a-s-c-d-s", "-")
+	want := []string{"a", "s", "c", "d", "s"}
+	if !reflect.DeepEqual(ret, want) {
+		// 测试用例失败了
+		t.Fatalf("want: %v, but: %v \n", want, ret)
+
+	}
+}
+
+func Test4Split(t *testing.T) {
+
+	ret := Split("abcdef", "cde")
+	want := []string{"ab", "f"}
+	if !reflect.DeepEqual(ret, want) {
+		// 测试用例失败了
+		t.Fatalf("want: %v, but: %v \n", want, ret)
+
+	}
+}

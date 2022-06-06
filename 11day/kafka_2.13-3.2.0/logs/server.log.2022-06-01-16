@@ -1,0 +1,12 @@
+[2022-06-01 16:57:18,244] INFO session=0x100034f1e440000	user=zhangqi	operation=ephemeralZNodeDeletionOnSessionCloseOrExpire	znode=/controller	result=success (org.apache.zookeeper.audit.Log4jAuditLogger)
+[2022-06-01 16:57:18,278] INFO session=0x100034f1e440000	user=zhangqi	operation=ephemeralZNodeDeletionOnSessionCloseOrExpire	znode=/brokers/ids/0	result=success (org.apache.zookeeper.audit.Log4jAuditLogger)
+[2022-06-01 16:57:18,447] WARN Unexpected exception (org.apache.zookeeper.server.NIOServerCnxn)
+EndOfStreamException: Unable to read additional data from client, it probably closed the socket: address = /127.0.0.1:49483, session = 0x100034f1e440000
+	at org.apache.zookeeper.server.NIOServerCnxn.handleFailedRead(NIOServerCnxn.java:163)
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:326)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory$IOWorkRequest.doWork(NIOServerCnxnFactory.java:522)
+	at org.apache.zookeeper.server.WorkerService$ScheduledWorkRequest.run(WorkerService.java:154)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[2022-06-01 16:57:21,623] INFO user=zhangqi	operation=serverStop	result=invoked (org.apache.zookeeper.audit.Log4jAuditLogger)

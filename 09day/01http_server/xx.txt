@@ -1,0 +1,3 @@
+<h1 style="color:red">Hello world 美好一天</h1>
+<a href="https://www.baidu.com">点我去百度</a>
+<img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp1.itc.cn%2Fimages01%2F20210520%2F78bcf148e52340819bf382285e52e433.jpeg&refer=http%3A%2F%2Fp1.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1655535353&t=bb7dd8726d547d40cb979e7c797416e5"/>
