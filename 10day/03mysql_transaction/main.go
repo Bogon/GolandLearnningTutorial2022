@@ -31,6 +31,10 @@ func initDB() (err error) {
 	return nil
 }
 
+// A user is a struct with an id, name, and age.
+// @property {int} id - The id of the user.
+// @property {string} name - The name of the struct.
+// @property {int} age - The age of the user.
 type user struct {
 	id   int
 	name string

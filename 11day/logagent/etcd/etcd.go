@@ -35,7 +35,7 @@ func Init(addr string, timeout time.Duration) (err error) {
 	return
 }
 
-// 从ETCD中根据 key 获取配置项
+// GetConf 从ETCD中根据 key 获取配置项
 func GetConf(key string) (logEntryConf []*LogEntry, err error) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
@@ -55,4 +55,30 @@ func GetConf(key string) (logEntryConf []*LogEntry, err error) {
 		}
 	}
 	return
+}
+
+func WatchConf(key string, newConfCh chan<- []*LogEntry) {
+	// 排一个哨兵一直监视着 key, 这个 key 的变化，新增修改删除
+	ch := cli.Watch(context.Background(), key)
+
+	// 从通道尝试取值
+	for wresp := range ch {
+		for _, ev := range wresp.Events {
+			fmt.Printf("Type: %v, Key: %v, Value: %v \n", ev.Type, string(ev.Kv.Key), string(ev.Kv.Value))
+			// 通知别人，通知 taillog.tskMgr
+			// 1. 先判断操作的类型
+			var newConf []*LogEntry
+			if ev.Type != clientv3.EventTypeDelete {
+				// 如果是删除操作，手动传递一个空的配置项
+				err := json.Unmarshal(ev.Kv.Value, &newConf)
+				if err != nil {
+					fmt.Printf("json unmarchal failed, error: %v \n", err)
+					continue
+				}
+			}
+
+			fmt.Printf("get new conf: %v \n", newConf)
+			newConfCh <- newConf
+		}
+	}
 }
