@@ -19,8 +19,8 @@ func main() {
 	fmt.Println("connect etcd success…")
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-	key := "/logagent/collect_config"
-	value := `[{"path":"/Users/zhangqi/go/src/learning.goland.com/studyGoland/11day/logagent/logs/ngnix.log","topic":"web_log"},{"path":"/Users/zhangqi/go/src/learning.goland.com/studyGoland/11day/logagent/logs/redis.log","topic":"redis_log"},{"path":"/Users/zhangqi/go/src/learning.goland.com/studyGoland/11day/logagent/logs/mysql.log","topic":"mysql_log"}]`
+	key := "/logagent/192.168.39.115/collect_config"
+	value := `[{"path":"/Users/zhangqi/go/src/learning.goland.com/studyGoland/logagent/logs/ngnix.log","topic":"web_log"},{"path":"/Users/zhangqi/go/src/learning.goland.com/studyGoland/logagent/logs/redis.log","topic":"redis_log"},{"path":"/Users/zhangqi/go/src/learning.goland.com/studyGoland/logagent/logs/mysql.log","topic":"mysql_log"}]`
 	_, err = cli.Put(ctx, key, value)
 	cancel()
 	if err != nil {

@@ -37,7 +37,7 @@ func main() {
 	dsb.run().eat()
 
 	// 创建连接 elastic client
-	client, err := elastic.NewClient(elastic.SetURL("http://192.168.39.160:9200"))
+	client, err := elastic.NewClient(elastic.SetURL("http://192.168.39.95:9200"))
 	if err != nil {
 		panic(err)
 	}
